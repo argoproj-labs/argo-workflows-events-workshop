@@ -21,3 +21,4 @@
 1. Run `argo list`
 2. Run `argo submit https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/hello-world.yaml --watch` 
 
+![image](https://user-images.githubusercontent.com/33908564/128098762-42814586-9b42-465c-aabf-3b5de09c8408.png)
