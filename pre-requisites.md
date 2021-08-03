@@ -17,3 +17,7 @@
 6. Open in Browser http://localhost:2746 
 7. Run `brew install argoproj/tap/argo`
 
+### Verify the installation
+1. Run `argo list`
+2. Run `argo submit https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/hello-world.yaml --watch` 
+
