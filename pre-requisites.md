@@ -10,7 +10,7 @@
 
 ### Install Argo workflow controller
 1. Run `kubectl create ns argo`
-2. Run `kubectl -n argo apply -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-minimal.yaml`
+2. Run `kubectl -n argo apply -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/install.yaml`
 3. Run `kubectl -n argo patch cm workflow-controller-configmap -p '{"data": {"containerRuntimeExecutor": "pns"}}' ;# needed for K3S`
 4. Run `kubectl -n argo get pods`
 5. Run `kubectl -n argo port-forward svc/argo-server 2746:2746`
