@@ -4,7 +4,7 @@
 2. Clone  https://github.com/argoproj-labs/advanced-argo-workflows-workshop.git
 3. Run `kubectl`
 4. Run `brew install k3d`
-5. Run `k3d create`
+5. Run `k3d cluster create`
 6. Run `export KUBECONFIG="$(k3d get-kubeconfig --name='k3s-default')"`
 7. Run `kubectl cluster-info`
 
