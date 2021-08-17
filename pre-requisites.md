@@ -5,8 +5,7 @@
 3. Run `kubectl`
 4. Run `brew install k3d`
 5. Run `k3d cluster create`
-6. Run `export KUBECONFIG="$(k3d get-kubeconfig --name='k3s-default')"`
-7. Run `kubectl cluster-info`
+6. Run `kubectl cluster-info`
 
 ### Install Argo workflow controller
 1. Run `kubectl create ns argo`
