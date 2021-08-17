@@ -14,7 +14,7 @@
 3. Run `kubectl -n argo patch cm workflow-controller-configmap -p '{"data": {"containerRuntimeExecutor": "pns"}}' ;# needed for K3S`
 4. Run `kubectl -n argo get pods`
 5. Run `kubectl -n argo port-forward svc/argo-server 2746:2746`
-6. Open in Browser http://localhost:2746 
+6. Open in Browser https://localhost:2746 
 7. Run `brew install argoproj/tap/argo`
 
 ### Verify the installation
