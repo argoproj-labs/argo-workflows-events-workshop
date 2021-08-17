@@ -1,11 +1,13 @@
 # This template demonstrates a workflow of workflows.
 # Workflow triggers one or more workflow and manage it.
+#
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: workflow-of-workflows-
+  generateName: workflow-of-workflows-multi-ns-
 spec:
   entrypoint: main
+  serviceAccountName: argo
   templates:
     - name: main
       steps:
@@ -13,17 +15,15 @@ spec:
             template: triggerWorkflow
             arguments:
               parameters:
-                - name: message
+                - name: namespace
                   value: "{{item}}"
             withItems:
-              - hello world
-              - goodbye world
+              - default
+              - argo
     - name: triggerWorkflow
       inputs:
         parameters:
-          - name: message
-      retryStrategy:
-        limit: "2"
+          - name: namespace
       resource:
         action: create
         manifest: |
@@ -31,14 +31,15 @@ spec:
           kind: Workflow
           metadata:
             generateName: workflow-of-workflows-1-
+            namespace: {{inputs.parameters.namespace}}
           spec:
             entrypoint: whalesay
+            serviceAccountName: default
             templates:
               - name: whalesay
                 container:
-                  image: python:alpine3.6
-                  command: ["python", -c]
-                  # fail with a 66% probability
-                  args: ["import random; import sys; exit_code = random.choice([0, 1, 1]); sys.exit(exit_code)"]
+                  image: docker/whalesay:latest
+                  command: [cowsay]
+                  args: ["hello world {{inputs.parameters.namespace}}"]
         successCondition: status.phase == Succeeded
         failureCondition: status.phase in (Failed, Error)
