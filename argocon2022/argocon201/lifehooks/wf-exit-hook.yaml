@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: lifecycle-hook-
+spec:
+  entrypoint: main
+  hooks:
+    exit:
+      template: heads
+    running:
+      expression: workflow.status == "Running"
+      template: http
+  templates:
+    - name: main
+      steps:
+      - - name: step1
+          template: heads
+    
+    - name: heads
+      container:
+        image: alpine:3.6
+        command: [sh, -c]
+        args: ["echo \"{{workflows.status}}\""]
