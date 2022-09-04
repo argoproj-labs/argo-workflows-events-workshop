@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+ name: add-example-template
+spec:
+ entrypoint: main
+ templates:
+   - name: main
+     steps:
+       - - name: addFour
+           template: addFour
+           arguments: {parameters: [{name: "a", value: "2"}]}
+       - - name: sayHello
+           template: sayHello
+           when: "{{steps.addFour.outputs.result}} > 5"
+   - name: addFour
+     inputs: {parameters: [{name: "a"}]}
+     container:
+       image: alpine:latest
+       command: [sh, -c]
+       args: ["echo $(( {{inputs.parameters.a}} + 4 ))"]
+   - name: sayHello
+     container:
+       image: alpine:latest
+       command: [sh, -c]
+       args: [echo "Hello Intuit!"]
