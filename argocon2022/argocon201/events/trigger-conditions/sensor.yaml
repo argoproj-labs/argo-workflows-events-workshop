@@ -24,7 +24,7 @@ spec:
           url: https://quickbooks.intuit.com/
           method: GET
     - template:
-        conditions: dep1 && dep2
+        conditions: dep1 || dep2
         name: http-trigger3
         http:
           url: https://www.intuit.com/
