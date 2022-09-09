@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: filter-webhook
+spec:
+  webhook:
+    example:
+      port: "8080"
+      endpoint: /example
+      method: POST
+      filter: 
+        expression: "(body.department.id == 3) && (body.name != 'John')"

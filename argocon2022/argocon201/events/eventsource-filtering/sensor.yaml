@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: es-filter-example
+spec:
+  dependencies:
+    - name: dep1
+      eventSourceName: filter-webhook
+      eventName: example
+  triggers:
+    - template:
+        name: log-trigger
+        log: {}
