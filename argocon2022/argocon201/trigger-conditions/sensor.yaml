@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: http-get
+spec:
+  dependencies:
+    - name: dep1
+      eventSourceName: my-webhooks
+      eventName: example1
+    - name: dep2
+      eventSourceName: my-webhooks
+      eventName: example2
+  triggers:
+    - template:
+        conditions: dep1
+        name: http-trigger1
+        http:
+          url: https://turbotax.intuit.com/
+          method: GET
+    - template:
+        conditions: dep2
+        name: http-trigger2
+        http:
+          url: https://quickbooks.intuit.com/
+          method: GET
+    - template:
+        conditions: dep1 && dep2
+        name: http-trigger3
+        http:
+          url: https://www.intuit.com/
+          method: GET

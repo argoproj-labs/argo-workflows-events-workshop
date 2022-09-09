@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: my-webhooks
+spec:
+  webhook:
+    example1:
+      port: "8080"
+      endpoint: /example1
+      method: POST
+    example2:
+      port: "8080"
+      endpoint: /example2
+      method: POST
