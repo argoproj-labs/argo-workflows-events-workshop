@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: param-sensor
+spec:
+  template:
+    serviceAccountName: operate-workflow-sa
+  dependencies:
+    - name: dep1
+      eventSourceName: params-webhook
+      eventName: example
+  triggers:
+    - template:
+        name: wf-trigger
+        k8s:
+          operation: create
+          parameters:
+            - src:
+                dependencyName: dep1
+                dataKey: body.msg
+                value: "Hello ArgoCon" # Default value
+              dest: spec.arguments.parameters.0.value
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: hello-
+              spec:
+                entrypoint: whalesay
+                arguments:
+                  parameters:
+                    - name: message
+                      value: hello world
+                templates:
+                  - name: whalesay
+                    inputs:
+                      parameters:
+                        - name: message
+                    container:
+                      image: docker/whalesay
+                      command: [cowsay]
+                      args: ["{{inputs.parameters.message}}"]
+
