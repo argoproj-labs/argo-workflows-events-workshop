@@ -11,6 +11,7 @@ spec:
       eventName: example
   triggers:
     - template:
+        conditions: "test-dep"
         name: webhook-workflow-trigger
         k8s:
           operation: create
