@@ -16,6 +16,10 @@
 
 ```kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/master/argocon2022/install/install-events/sensor-rbac.yaml```
 
-5. (Optional) switch to 'argo-events' namespace
+5. Add K8S Role which will be tied to Workflow Pods 
+
+```kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/master/argocon2022/install/install-events/workflow-rbac.yaml```
+
+6. (Optional) switch to 'argo-events' namespace
 
 ```kubectl config set-context --current --namespace=argo-events```
