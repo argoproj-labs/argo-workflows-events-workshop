@@ -10,7 +10,7 @@
 
 3. Make sure Pods get into a Running state
 
-```kubectl -n argo get pods –-watch```
+```kubectl -n argo get pods --watch```
 
 4. Port forward port for UI so you can navigate to it in a browser 
 
