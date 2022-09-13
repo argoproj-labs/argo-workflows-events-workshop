@@ -6,7 +6,7 @@
 
 2. Wait for 3 Pods called “eventbus-default-js-<index>” to be in Running state
 
-  ```kubectl -n argo-events get pods --watch```
+  ```kubectl -n argo-events get pods```
   
 3. Create EventSource
   
@@ -14,7 +14,7 @@
   
 4. Verify EventSource Pod is in Running state (should see pod prefixed by “webhook-eventsource-”)
   
-```kubectl -n argo-events get pods --watch```
+```kubectl -n argo-events get pods```
   
 5. Create Sensor
   
@@ -22,7 +22,7 @@
   
 6. Verify Sensor Pod is in Running state (should see pod prefixed by “webhook-sensor")
   
-```kubectl -n argo-events get pods --watch```
+```kubectl -n argo-events get pods```
   
 7. Port forward your EventSource Pod so you can access the HTTP endpoint
   
