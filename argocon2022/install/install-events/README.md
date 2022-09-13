@@ -15,3 +15,7 @@
 4. Add Kubernetes Role which will be tied to our Sensor’s Service Account to enable creating Workflows
 
 ```kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/master/argocon2022/install/install-events/sensor-rbac.yaml```
+
+5. (Optional) switch to 'argo-events' namespace
+
+```kubectl config set-context --current --namespace=argo-events```
