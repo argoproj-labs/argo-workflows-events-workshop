@@ -10,7 +10,7 @@
 
 3. verify controller-manager is running
 
-```kubectl -n argo-events get pods --watch```
+```kubectl -n argo-events get pods```
 
 4. Add Kubernetes Role which will be tied to our Sensor’s Service Account to enable creating Workflows
 
