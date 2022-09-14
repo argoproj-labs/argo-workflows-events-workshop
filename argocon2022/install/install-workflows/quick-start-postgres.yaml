@@ -1761,11 +1761,10 @@ spec:
       containers:
       - args:
         - server
-        - --namespaced
         - --auth-mode
         - server
-        - --auth-mode
-        - client
+        - --secure
+        - "false"
         env: []
         image: quay.io/argoproj/argocli:v3.4.0-rc3
         name: argo-server
