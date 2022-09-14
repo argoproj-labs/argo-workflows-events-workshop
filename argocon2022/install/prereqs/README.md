@@ -13,6 +13,9 @@
 
 ```
 brew install k3d 
+# or:
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
 k3d cluster create
 k3d kubeconfig get k3s-default > ~/Downloads/argo-workshop-k8s.config
 export KUBECONFIG=~/Downloads/argo-workshop-k8s.config
