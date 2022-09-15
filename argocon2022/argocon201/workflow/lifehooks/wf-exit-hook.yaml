@@ -9,7 +9,7 @@ spec:
       template: heads
     running:
       expression: workflow.status == "Running"
-      template: http
+      template: heads
   templates:
     - name: main
       steps:
