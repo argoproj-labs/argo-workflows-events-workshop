@@ -36,6 +36,6 @@
   
 ```
 kubectl -n argo-events get workflows | grep "webhook"
-argo logs <workflow-name>
+argo logs -n argo-events <workflow-name>
 ```
 
