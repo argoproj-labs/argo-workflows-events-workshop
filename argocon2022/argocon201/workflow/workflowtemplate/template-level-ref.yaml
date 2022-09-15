@@ -10,7 +10,7 @@ spec:
       - - name: call-addfour-template
           templateRef:
             name: add-example-template
-            template: addFour
+            template: addfour
           arguments:
             parameters:
             - name: a
