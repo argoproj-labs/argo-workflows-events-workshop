@@ -7,19 +7,19 @@ spec:
  templates:
    - name: main
      steps:
-       - - name: addFour
-           template: addFour
+       - - name: addfour
+           template: addfour
            arguments: {parameters: [{name: "a", value: "2"}]}
-       - - name: sayHello
-           template: sayHello
+       - - name: sayhello
+           template: sayhello
            when: "{{steps.addFour.outputs.result}} > 5"
-   - name: addFour
+   - name: addfour
      inputs: {parameters: [{name: "a"}]}
      container:
        image: alpine:latest
        command: [sh, -c]
        args: ["echo $(( {{inputs.parameters.a}} + 4 ))"]
-   - name: sayHello
+   - name: sayhello
      container:
        image: alpine:latest
        command: [sh, -c]
