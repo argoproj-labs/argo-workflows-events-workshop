@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: workflow-controller
 spec:
+  selector:
+    matchLabels:
+      app: workflow-controller:wq
   template:
     spec:
       containers:
