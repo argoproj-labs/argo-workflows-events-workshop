@@ -7,11 +7,11 @@ spec:
   templates:
   - name: whalesay
     steps:
-      - - name: call-addfour-template
-          templateRef:
-            name: add-example-template
-            template: addfour
-          arguments:
-            parameters:
-            - name: a
-              value: "3"
+    - - name: call-addfour-template
+        templateRef:
+          name: add-example-template
+          template: addfour
+        arguments:
+          parameters:
+          - name: a
+            value: "3"
