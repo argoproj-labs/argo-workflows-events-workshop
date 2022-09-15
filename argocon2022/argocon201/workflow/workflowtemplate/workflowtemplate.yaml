@@ -23,4 +23,4 @@ spec:
      container:
        image: alpine:latest
        command: [sh, -c]
-       args: [echo "Hello Intuit!"]
+       args: [echo "Hello Argocon!"]
