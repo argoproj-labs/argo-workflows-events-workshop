@@ -12,7 +12,7 @@ spec:
            arguments: {parameters: [{name: "a", value: "2"}]}
        - - name: sayhello
            template: sayhello
-           when: "{{steps.addFour.outputs.result}} > 5"
+           when: "{{steps.addfour.outputs.result}} > 5"
    - name: addfour
      inputs: {parameters: [{name: "a"}]}
      container:
