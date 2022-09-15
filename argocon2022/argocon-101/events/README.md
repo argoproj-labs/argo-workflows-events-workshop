@@ -35,7 +35,7 @@
 9. Verify it worked
   
 ```
-kubectl -n argo-events get workflows | grep "webhook"
+argo list -n argo-events
 argo logs -n argo-events <workflow-name>
 ```
 
