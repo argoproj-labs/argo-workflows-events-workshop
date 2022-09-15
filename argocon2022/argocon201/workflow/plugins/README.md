@@ -18,6 +18,5 @@ argo submit https://raw.githubusercontent.com/argoproj-labs/argo-workflows-event
 ```
 
 Output
-```
 <img width="721" alt="image" src="https://user-images.githubusercontent.com/33908564/190315949-33e367c5-e4b0-44d7-992c-f42d3afa234f.png">
 
