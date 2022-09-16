@@ -10,19 +10,19 @@ spec:
       - - name: add-four
           template: add-four
           arguments: {parameters: [{name: "a", value: "2"}]}
-      - - name: print-result
-          template: print-result
+      - - name: print-number
+          template: print-number
           when: "{{steps.add-four.outputs.result}} > 5"
-          arguments: {parameters: [{name: "result", value: "{{steps.add-four.outputs.result}}"}]}
+          arguments: {parameters: [{name: "num", value: "{{steps.add-four.outputs.result}}"}]}
     - name: add-four
       inputs: {parameters: [{name: "a"}]}
       container:
         image: alpine:latest
         command: [sh, -c]
         args: ["echo $(( {{inputs.parameters.a}} + 4 ))"]
-    - name: print-result
-      inputs: {parameters: [{name: "result"}]}
+    - name: print-number
+      inputs: {parameters: [{name: "num"}]}
       container:
         image: alpine:latest
         command: [sh, -c]
-        args: ["echo {{result}}"]
+        args: ["echo {{inputs.parameters.num}}"]
