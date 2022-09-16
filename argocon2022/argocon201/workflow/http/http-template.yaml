@@ -17,7 +17,14 @@ spec:
               failed: true
             arguments:
               parameters: [{name: url, value: "http://openlibrary.org/people/george08/nofound.json"}]
-  
+          - name: good-1
+            template: http
+            arguments:
+              parameters: [{name: url, value: "https://raw.githubusercontent.com/argoproj/argo-workflows/4e450e250168e6b4d51a126b784e90b11a0162bc/pkg/apis/workflow/v1alpha1/generated.swagger.json"}]
+          - name: good-2
+            template: http
+            arguments:
+              parameters: [{name: url, value: "https://raw.githubusercontent.com/argoproj/argo-workflows/4e450e250168e6b4d51a126b784e90b11a0162bc/pkg/apis/workflow/v1alpha1/generated.swagger.json"}]
     - name: http
       inputs:
         parameters:
