@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-- Join Slack channel for workshop in CNCF slack (add name here when it is made ie. #argocon-2022-wfs-events-workshop)
+- Join Slack channel for workshop in CNCF slack (#argocon-2022-wfs-events-workshop)
 - Install Kubernetes locally, using one of these:
     - minikube
     - kind
