@@ -14,8 +14,11 @@ spec:
     - name: main
       steps:
       - - name: step1
+          hooks:
+            running:
+              expression: steps.step1.status == "Running"
+              template: heads
           template: heads
-    
     - name: heads
       container:
         image: alpine:3.6
