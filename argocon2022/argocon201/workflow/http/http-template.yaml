@@ -8,14 +8,14 @@ spec:
     - name: main
       steps:
       - - name: one
-          template: http
+          template: http-steps
         - name: two
-          template: http
+          template: http-steps
         - name: three
-          template: http
+          template: http-steps
         - name: four
-          template: http
-    - name: http
+          template: http-steps
+    - name: http-steps
       steps:
         - - name: good
             template: http
