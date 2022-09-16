@@ -7,6 +7,16 @@ spec:
   templates:
     - name: main
       steps:
+      - - name: one
+          template: http
+        - name: two
+          template: http
+        - name: three
+          template: http
+        - name: four
+          template: http
+    - name: http
+      steps:
         - - name: good
             template: http
             arguments:
