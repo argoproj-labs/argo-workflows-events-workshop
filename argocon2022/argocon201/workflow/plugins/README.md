@@ -2,14 +2,15 @@
 
 ### Patch the Controller  Deploymentt
 
+Enable the Plugin in workflow controller
 ```
-Kubectl apply -f  https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/main/argocon2022/argocon201/workflow/plugins/deployment-patch.yaml -n argo
+kubectl patch deployment workflow-controller  --type='json' -p='[{"op": "add", "path":"/spec/template/spec/containers/0/env/-", "value":{"name":"ARGO_EXECUTOR_PLUGINS", "value": "true"}}]'
 ```
 
 ### Register the Plugins
 
 ```
-Kubectl apply -f https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/main/argocon2022/argocon201/workflow/plugins/hello-world-plugin.yaml -n argo```
+Kubectl apply -f https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/main/argocon2022/argocon201/workflow/plugins/hello-world-plugin.yaml -n argo
 ```
 
 ### Submit the Workflow with Plugin
