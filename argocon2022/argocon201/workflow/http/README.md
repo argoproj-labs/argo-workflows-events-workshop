@@ -5,7 +5,43 @@ argo submit https://raw.githubusercontent.com/argoproj-labs/argo-workflows-event
 ```
 
 Output:
-![image](https://user-images.githubusercontent.com/33908564/190455287-6b0bde3f-5947-47c9-94c2-548ca81fca48.png)
+```sh
+Name:                http-template-wbcz6
+Namespace:           argo
+ServiceAccount:      unset (will run with the default ServiceAccount)
+Status:              Succeeded
+Conditions:          
+ PodRunning          False
+ Completed           True
+Created:             Thu Sep 15 21:44:09 -0700 (36 seconds ago)
+Started:             Thu Sep 15 21:44:09 -0700 (36 seconds ago)
+Finished:            Thu Sep 15 21:44:45 -0700 (now)
+Duration:            36 seconds
+Progress:            12/16
+
+STEP                    TEMPLATE    PODNAME  DURATION  MESSAGE
+ ✔ http-template-wbcz6  main                                                                
+ └─┬─✔ four             http-steps                                                          
+   │ └─┬─✖ bad          http                           received non-2xx response code: 404  
+   │   ├─✔ good         http                                                                
+   │   ├─✔ good-1       http                                                                
+   │   └─✔ good-2       http                                                                
+   ├─✔ one              http-steps                                                          
+   │ └─┬─✖ bad          http                           received non-2xx response code: 404  
+   │   ├─✔ good         http                                                                
+   │   ├─✔ good-1       http                                                                
+   │   └─✔ good-2       http                                                                
+   ├─✔ three            http-steps                                                          
+   │ └─┬─✖ bad          http                           received non-2xx response code: 404  
+   │   ├─✔ good         http                                                                
+   │   ├─✔ good-1       http                                                                
+   │   └─✔ good-2       http                                                                
+   └─✔ two              http-steps                                                          
+     └─┬─✖ bad          http                           received non-2xx response code: 404  
+       ├─✔ good         http                                                                
+       ├─✔ good-1       http                                                                
+       └─✔ good-2       http                                                      
+```
 
 
 ### Check the Agent POD
