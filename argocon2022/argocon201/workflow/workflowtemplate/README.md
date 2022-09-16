@@ -60,3 +60,10 @@ STEP                                 TEMPLATE                      PODNAME      
  └───◷ call-addfour-template         add-example-template/addfour  workflow-template-add-four-82nm4-3049778637  6s        PodInitializing
 ```
 
+###Submiting using --from option in CLI
+
+```
+ argo submit --from workflowtemplate/add-example-template --watch
+ ```
+
+
