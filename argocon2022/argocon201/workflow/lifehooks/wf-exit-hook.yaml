@@ -4,6 +4,12 @@
       generateName: lifecycle-hook-tmpl-level-
     spec:
       entrypoint: main
+      hooks:
+        exit:
+          template: http
+        running:
+          expression: workflow.status == "Running"
+          template: http
       templates:
         - name: main
           steps:
