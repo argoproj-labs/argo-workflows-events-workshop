@@ -15,8 +15,7 @@ spec:
       steps:
       - - name: step1
           hooks:
-            running:
-              expression: steps.step1.status == "Running"
+            exit:
               template: heads
           template: heads
     - name: heads
