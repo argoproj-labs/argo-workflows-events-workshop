@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: lifecycle-hook-
+  generateName: hook-demo-
 spec:
   entrypoint: main
   hooks:
