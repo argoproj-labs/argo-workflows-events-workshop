@@ -39,7 +39,7 @@ Learn more at https://argoproj.github.io/argo-workflows/workflow-pod-security-co
 #### Template Level
 
 ```
-argo submit https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/main/argocon2022/argocon201/workflow/workflowtemplate/template-level-ref.yaml --watch
+argo submit https://raw.githubusercontent.com/argoproj-labs/argo-workflows-events-workshop/main/argocon2022/argocon201/workflow/workflowtemplate/workflow-level-ref.yaml --watch
 ```
 
 Output
